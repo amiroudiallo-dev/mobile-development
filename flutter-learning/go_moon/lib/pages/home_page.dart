@@ -1,15 +1,27 @@
 
+// ignore_for_file: unused_local_variable, no_leading_underscores_for_local_identifiers, unused_element
+
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}): super(key: key);
+  late double _deviceHeight, _deviceWidth;
+  //constructor.
+  HomePage({Key? key}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return SafeArea(child: Container(
-      child: _pageTitle(),
-    ));
+    _deviceHeight = MediaQuery.of(context).size.height;
+    _deviceWidth = MediaQuery.of(context).size.width;
+    return Scaffold(
+      body: SafeArea(
+        child: Container(
+          height: _deviceHeight,
+          width: _deviceWidth,
+          padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.035),
+          child: _pageTitle(),
+        )
+      )
+    );
   }
 
 // cette fonction retourne une image comme fond de l'app.
@@ -35,4 +47,19 @@ class HomePage extends StatelessWidget {
         decoration: TextDecoration.none
     ),);
   }
+
+// this function return a drop-down widget.
+  Widget _destinationDropDownWidget() {
+    List<DropdownMenuItem<String>> _items = ['Seatle', 'California']
+    .map((e) {
+      return DropdownMenuItem(child: Text(e), value: (e));
+    }).toList();
+    return Container(
+      child: DropdownButton(
+        onChanged: (_) {},
+        items: _items,
+      ),
+    );
+  }
+
 }
