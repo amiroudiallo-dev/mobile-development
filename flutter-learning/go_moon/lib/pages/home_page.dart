@@ -19,15 +19,23 @@ class HomePage extends StatelessWidget {
           height: _deviceHeight,
           width: _deviceWidth,
           padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.035),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Stack(
             children: [
-              _pageTitle(),
-              _bookRideWidget(),
-            ],
-          ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _pageTitle(),
+                  _bookRideWidget(),
+                ],
+              ),
+            Align(
+              // alignment: Alignment.centerRight,
+              child:  _astroImageWidget()
+            )
+          ],
+          )
         )
       )
     );
@@ -35,15 +43,17 @@ class HomePage extends StatelessWidget {
 
 // cette fonction retourne une image comme fond de l'app.
   Widget _astroImageWidget() {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
+    return Container(
+        height: _deviceHeight * 0.35,
+        width: _deviceWidth,
+        margin: const EdgeInsets.only(bottom: 180),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
           color: Colors.black,
-          image: DecorationImage(
+          image: const DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage("/Users/user/mobile-development/flutter-learning/go_moon/assets/images/astro_moon-2.png"))
       ),
-    ),
     );
   }
 // this function return a widget for page title.
