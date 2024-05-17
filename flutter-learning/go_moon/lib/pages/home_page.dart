@@ -2,6 +2,7 @@
 // ignore_for_file: unused_local_variable, no_leading_underscores_for_local_identifiers, unused_element
 
 import 'package:flutter/material.dart';
+import 'package:go_moon/pages/custom_dropdown_button.dart';
 
 class HomePage extends StatelessWidget {
   late double _deviceHeight, _deviceWidth;
@@ -25,6 +26,7 @@ class HomePage extends StatelessWidget {
             children: [
               _pageTitle(),
               _destinationDropDownWidget(),
+              _travellersInformationWidget(),
             ],
           ),
         )
@@ -58,25 +60,17 @@ class HomePage extends StatelessWidget {
 
 // this function return a drop-down widget.
   Widget _destinationDropDownWidget() {
-    List<String> _items = ['Seatle', 'California'];
+    return CustomDropDownButtonClass(
+      values: const ['Seatle', 'California', 'Canada'],
+      width: _deviceWidth
+    );
     
-    return Container(
-      width: _deviceWidth,
-      padding: EdgeInsets.symmetric(horizontal: _deviceWidth * 0.05),
-      decoration: BoxDecoration(
-        color: const Color.fromRGBO(53, 53, 53, 1.0),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: DropdownButton(
-        value: _items.first,
-        onChanged: (_) {},
-        items: _items.map((e) {
-          return DropdownMenuItem(value: (e), child: Text(e));
-        }).toList(),
-        underline: Container(),
-        dropdownColor: Color.fromRGBO(53, 53, 53, 1.0),
-        style: const TextStyle(color: Colors.white),
-      ),
+  }
+
+  Widget _travellersInformationWidget() {
+    return CustomDropDownButtonClass(
+      values: const ['1', '2', '3', '4', '5'],
+      width: _deviceWidth * 0.50
     );
   }
 
