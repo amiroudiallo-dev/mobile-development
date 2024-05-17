@@ -93,7 +93,25 @@ class HomePage extends StatelessWidget {
         children: [
           _destinationDropDownWidget(),
           _travellersInformationWidget(),
+          _rideButton(),
         ],
+      ),
+    );
+  }
+
+  Widget _rideButton() {
+    return Container(
+      width: _deviceWidth,
+      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(10)),
+      margin: EdgeInsets.only(bottom: _deviceHeight * 0.025),
+      child: MaterialButton(
+        onPressed: () {},
+        child: const Text(
+          "Book Ride!", 
+          style: TextStyle(
+            color: Colors.black
+          ),
+        ),
       ),
     );
   }
