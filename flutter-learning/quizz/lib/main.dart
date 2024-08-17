@@ -1,5 +1,5 @@
-import 'package:basic_app_quiz/screens/quiz_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:quizz/quiz.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,10 +14,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Quiz app',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amberAccent),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
         useMaterial3: true,
       ),
-      home: QuizScreen(),
+      home: const Quiz(),
     );
   }
 }
+
+
